@@ -26,10 +26,21 @@
             que permita capturar el id de la tarea y devoler un objeto JSON con dicha informacion
             -Realizar la funcion fetch correspondiente al interior de mostrarDetalle y captura la 
             informacion devuelta desde el servidor
-            -Obtener los elementos HTML internos de la venta o crearlos utilizando javascript y anexar
+            -Obtener los elementos HTML internos de la ventana o crearlos utilizando javascript y anexar
             la informacion recibida en el objeto JSON
             -Las modificaciones realizadas en el codigo se mostraran de forma instantanea en la ventana
             */
+
+           function obtener_info_tarea(infoTarea)
+           {
+            console.log(infoTarea)
+            fetch(`http://127.0.0.1:8000/examenFinal/dashboard`)
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data)
+            })
+           }
+            
            function mostrarDetalle(id_tarea)
            {
             console.log(id_tarea)

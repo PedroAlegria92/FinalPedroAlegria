@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from .models import tareasExamen, usuariosFinal
-from django.http import HttpResponse,HttpResponseRedirect
+from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
 
 # Create your views here.
 def index(request):
@@ -27,4 +27,11 @@ def index(request):
 def dashboard(request):
     return render(request,'examenFinal/dashboard.html',{
         'tareas_totales':tareasExamen.objects.all().order_by('id')
+    })
+
+
+
+def obtener_info_tarea(request):
+    return JsonResponse({
+        'dato':'ok'
     })
