@@ -34,7 +34,7 @@
            function obtener_info_tarea(infoTarea)
            {
             console.log(infoTarea)
-            fetch(`http://127.0.0.1:8000/examenFinal/dashboard`)
+            fetch(`http://127.0.0.1:8000/examenFinal/dashboard/obtener_info_tarea?Tarea${infoTarea}`)
             .then(response=>response.json())
             .then(data=>{
                 console.log(data)

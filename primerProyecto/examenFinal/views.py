@@ -32,6 +32,9 @@ def dashboard(request):
 
 
 def obtener_info_tarea(request):
+    datoTarea=str(request.GET.get('Tarea'))
+    infoTarea=tareasExamen.objects.get(id=datoTarea)
+    arregloTarea=[infoTarea.fechaCreacion,infoTarea.fechaEntrega,infoTarea.descripcion,infoTarea.estadoTarea]
     return JsonResponse({
-        'dato':'ok'
+        'dato':arregloTarea,
     })
