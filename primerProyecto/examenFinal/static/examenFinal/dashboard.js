@@ -10,16 +10,6 @@
             -Las modificaciones realizadas en el codigo se mostraran de forma instantanea en la ventana
             */
 
-            /*function obtener_info_tarea(id_tarea)
-            {
-             console.log(id_tarea)
-             fetch(`http://127.0.0.1:8000/examenFinal/obtener_info_tarea?tarea=${id_tarea}`)
-             .then(response => response.json())
-             .then(data => {
-                 console.log(data)
-             })
-            }*/
-             
             function mostrarDetalle(id_tarea)
             {
              console.log(id_tarea)
@@ -46,9 +36,10 @@
             No olvide darle las propiedades ID, name, class, etc ... a los elementos HTML para su correspondiente
             captura.
             */
-            function eliminarDetalle()
+            function eliminarDetalle(id_tarea)
             {
              console.log('Funcion para eliminar el HTML interior de la ventana')
+             cuerpoTabla.innerHTML=''
             }
  
             //PREGUNTA 2-1
