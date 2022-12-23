@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse
 from .models import tareasExamen, usuariosFinal
 from django.http import HttpResponse,HttpResponseRedirect,JsonResponse
+import json
 
 # Create your views here.
 def index(request):
@@ -39,3 +40,13 @@ def obtener_info_tarea(request):
     return JsonResponse({
         'dato':arregloTarea,
     })
+
+def agregarTarea(request):
+    if request.method=='POST':
+        datos=json.load(request)
+        #arregloTarea=datos.get('productoTarea')
+        print(datos)
+        tareasExamen(fechaCreacion=datos[0],fechaEntrega=datos[1],descripcion=datos[2],estadoTarea=datos[3]).save()
+        return JsonResponse({
+            'resp':datos
+        })

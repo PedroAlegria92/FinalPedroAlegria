@@ -58,10 +58,10 @@
                 console.log('Crear nueva tarea')
                 //Escribir su codigo aqui
                 let fechacreacionAgregar=document.getElementById('fechacreacionAgregar').value
-                let fechaentregaAgregar=document.getElementById('fechaentregaAgregar')
-                let descripcionAgregar=document.getElementById('descripcionAgregar')
-                let estadotareaAgregar=document.getElementById('estadotareaAgregar')
-                let cuerpoTabla2=document.getElementById('cuerpoTabla2')
+                let fechaentregaAgregar=document.getElementById('fechaentregaAgregar').value
+                let descripcionAgregar=document.getElementById('descripcionAgregar').value
+                let estadotareaAgregar=document.getElementById('estadotareaAgregar').value
+                let productoTarea=[fechacreacionAgregar,fechaentregaAgregar,descripcionAgregar,estadotareaAgregar]
                 /*cuerpoTabla2.innerHTML+=`
                 <tr>
                     <td>${fechacreacionAgregar.value}</td>
@@ -71,7 +71,7 @@
                 </tr>
                 `*/
 
-             console.log(fechacreacionAgregar)
+             console.log(productoTarea)
 
              url='/examenFinal/agregarTarea'
              infoTarea={
@@ -81,9 +81,14 @@
                 method:"POST",
                 headers:{
                     "X-Request-With":"XMLHttpRequest",
-                    "X-CSRFToken":getCookie("csrftoken")
-                }
-                body:JSON.stringify()
+                    "X-CSRFToken":getCookie("csrftoken"),
+                },
+                body:JSON.stringify(productoTarea)
+             })
+             .then(response=>response.json())
+             .then(data=>{
+                console.log(data)
+                window.location.assign('/examenFinal/dashboard')
              })
              //Fin del codigo
              $(".modal-backdrop").remove();
@@ -95,10 +100,10 @@
                 let cookieValue=null;
                 if(document.cookie && document.cookie !=="")
                 {
-                    const cookies=document.cookies.split(";")
+                    const cookies=document.cookie.split(";")
                     for(let i=0;i<cookies.length;i++)
                     {
-                        const cookie=cookie[i].trim();
+                        const cookie=cookies[i].trim();
                         if((cookie.substring(0,name.length+1))===(name+'='))
                         {
                             cookieValue=decodeURIComponent(cookie.substring(name.length+1))
