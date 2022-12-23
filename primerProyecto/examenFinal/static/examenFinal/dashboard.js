@@ -36,7 +36,7 @@
             No olvide darle las propiedades ID, name, class, etc ... a los elementos HTML para su correspondiente
             captura.
             */
-            function eliminarDetalle(id_tarea)
+            function eliminarDetalle()
             {
              console.log('Funcion para eliminar el HTML interior de la ventana')
              cuerpoTabla.innerHTML=''
@@ -48,19 +48,65 @@
             Luego de capturar la informacion se debe enviar la informacion al servidor a traves
             de fetch y guardar la informacion enviada en el servidor
             Al recibir la confirmacion del servidor se debe eliminar la totalidad de informacion
-            al interior de la venta
+            al interior de la ventana
             No olvidar agregar los datos principales a la tabla con javascript, capturar la tabla y
             anexar los datos de la nueva tarea como una fila nueva
             Al infalizar el codigo recordar eliminar la informacion al interior de los inputs definidos
             */
             function nuevaTarea()
             {
-             console.log('Crear nueva tarea')
-             //Escribir su codigo aqui
- 
+                console.log('Crear nueva tarea')
+                //Escribir su codigo aqui
+                let fechacreacionAgregar=document.getElementById('fechacreacionAgregar').value
+                let fechaentregaAgregar=document.getElementById('fechaentregaAgregar')
+                let descripcionAgregar=document.getElementById('descripcionAgregar')
+                let estadotareaAgregar=document.getElementById('estadotareaAgregar')
+                let cuerpoTabla2=document.getElementById('cuerpoTabla2')
+                /*cuerpoTabla2.innerHTML+=`
+                <tr>
+                    <td>${fechacreacionAgregar.value}</td>
+                    <td>${fechaentregaAgregar.value}</td>
+                    <td>${descripcionAgregar.value}</td>
+                    <td>${estadotareaAgregar.value}</td>
+                </tr>
+                `*/
+
+             console.log(fechacreacionAgregar)
+
+             url='/examenFinal/agregarTarea'
+             infoTarea={
+
+             }
+             fetch(url,{
+                method:"POST",
+                headers:{
+                    "X-Request-With":"XMLHttpRequest",
+                    "X-CSRFToken":getCookie("csrftoken")
+                }
+                body:JSON.stringify()
+             })
              //Fin del codigo
              $(".modal-backdrop").remove();
              $('#nuevaTarea').hide()
+            }
+
+            function getCookie(name)
+            {
+                let cookieValue=null;
+                if(document.cookie && document.cookie !=="")
+                {
+                    const cookies=document.cookies.split(";")
+                    for(let i=0;i<cookies.length;i++)
+                    {
+                        const cookie=cookie[i].trim();
+                        if((cookie.substring(0,name.length+1))===(name+'='))
+                        {
+                            cookieValue=decodeURIComponent(cookie.substring(name.length+1))
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
             }
  
             /*
