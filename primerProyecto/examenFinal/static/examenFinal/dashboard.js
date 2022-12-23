@@ -27,6 +27,15 @@
              .then(response => response.json())
              .then(data => {
                  console.log(data)
+                 let cuerpoTabla=document.getElementById('cuerpoTabla')
+                 for(let i=0;i<data.dato.length;i++)
+                 {
+                    cuerpoTabla.innerHTML+=`
+                    <tr>
+                        <td>${data.dato[i]}</td>
+                    </tr>
+                    `
+                 }
              })
             }
  
