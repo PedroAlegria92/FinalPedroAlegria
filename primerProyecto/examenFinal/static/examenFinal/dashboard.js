@@ -88,7 +88,7 @@
              .then(response=>response.json())
              .then(data=>{
                 console.log(data)
-                /*window.location.assign('/examenFinal/dashboard')*/
+                fetch(`http://127.0.0.1:8000/examenFinal/dashboard`)
              })
 
              eliminarNuevo()
@@ -115,7 +115,7 @@
                 }
                 return cookieValue;
             }
- 
+
             /*
             Capturar los input de la ventana modal para nuevaTarea y eliminar el valor al interior de 
             dichos campos
@@ -167,3 +167,18 @@
  
              //Fin del codigo
             }
+        
+
+
+
+
+
+            /*addEventListener('DOMContentLoaded', ()=>{
+                let Agregar = document.getElementById('Agregar')
+            
+                Agregar.onclick = function()
+                {
+                    console.log('Hola')
+                    fetch(`http://127.0.0.1:8000/examenFinal/dashboard`)
+                }
+            })*/

@@ -46,7 +46,7 @@
                         <th scope="col">Eliminar tarea</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="cuerpoPrincipal">
                 {% for tarea in tareas_totales %}
                 <tr>
                     <td scope="row">{{ tarea.fechaCreacion }}</td>
@@ -87,7 +87,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="eliminarNuevo()">Cancelar</button>
-                <button type="submit" class="btn btn-primary" onclick="nuevaTarea()">Agregar</button>
+                <button type="submit" class="btn btn-primary" id="Agregar" onclick="nuevaTarea()">Agregar</button>
             </div>
         </div>
     </div>
