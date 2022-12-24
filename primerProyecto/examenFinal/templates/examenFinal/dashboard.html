@@ -54,7 +54,7 @@
                     <td>{{ tarea.estadoTarea }}</td>
                     <td style="text-align: center;"><a id="{{ tarea.id }}" class="btn btn-info" style="color: black;" data-bs-toggle="modal" data-bs-target="#verDetalle" onclick="mostrarDetalle(this.id)"><i class="fa fa-eye"></i></a></td>
                     <td style="text-align: center;"><a id="editar{{ tarea.id }}" class="btn btn-warning" style="color: black;" data-bs-toggle="modal" data-bs-target="#editarTarea" onclick="editarTarea(this.id)"><i class="fa fa-edit"></i></a></td>
-                    <td style="text-align: center;"><a id="eliminar{{ tarea.id }}" class="btn btn-danger" style="color: white;" onclick="eliminarTarea(this.id)"><i class="fa fa-trash"></i></a></td>
+                    <td style="text-align: center;"><a id="{{ tarea.id }}" class="btn btn-danger" style="color: white;" data-bs-toggle="modal" data-bs-target="#verEliminar" onclick="contador=this.id"><i class="fa fa-trash"></i></a></td>
                 </tr>
                 {% endfor %}
                 </tbody>
@@ -144,6 +144,32 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="eliminarDetalle()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!--Ventana Modal para eliminar tarea-->
+<div class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog" id="verEliminar">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Eliminar tarea?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick=""></button>
+            </div>
+            <div class="modal-body" id="infoTarea">
+                <table>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="eliminarTarea(contador)">SI</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="">NO</button>
             </div>
         </div>
     </div>

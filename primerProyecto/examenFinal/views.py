@@ -50,3 +50,11 @@ def agregarTarea(request):
         return JsonResponse({
             'resp':datos
         })
+
+def eliminarTarea(request):
+    datoTarea=str(request.GET.get('eliminar'))
+    tarea_eliminar=tareasExamen.objects.get(id=datoTarea)
+    tarea_eliminar.delete()
+    return JsonResponse({
+        'dato':'Eliminado ok',
+    })

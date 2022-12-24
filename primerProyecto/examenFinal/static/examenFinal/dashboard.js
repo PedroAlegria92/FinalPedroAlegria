@@ -140,9 +140,14 @@
             a la vista
             La funcion fetch deberá de recibir dicha confirmacion y eliminará la tarea de la tabla
             */
-            function eliminarTarea(id_tarea)
+            function eliminarTarea(id_tarea2)
             {
-             console.log(id_tarea)
+             console.log(id_tarea2)
+             fetch(`http://127.0.0.1:8000/examenFinal/eliminarTarea?eliminar=${id_tarea2}`)
+             .then(response => response.json())
+             .then(data => {
+                console.log(data)
+            })
             }
  
             //PREGUNTA 2-3
