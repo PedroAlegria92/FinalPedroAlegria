@@ -88,8 +88,10 @@
              .then(response=>response.json())
              .then(data=>{
                 console.log(data)
-                window.location.assign('/examenFinal/dashboard')
+                /*window.location.assign('/examenFinal/dashboard')*/
              })
+
+             eliminarNuevo()
              //Fin del codigo
              $(".modal-backdrop").remove();
              $('#nuevaTarea').hide()
@@ -120,7 +122,14 @@
             */
             function eliminarNuevo()
             {
- 
+                let fechacreacionAgregar=document.getElementById('fechacreacionAgregar')
+                fechacreacionAgregar.value=""
+                let fechaentregaAgregar=document.getElementById('fechaentregaAgregar')
+                fechaentregaAgregar.value=""
+                let descripcionAgregar=document.getElementById('descripcionAgregar')
+                descripcionAgregar.value=""
+                let estadotareaAgregar=document.getElementById('estadotareaAgregar')
+                estadotareaAgregar.value=""
             }
  
             //PREGUNTA 2-2
